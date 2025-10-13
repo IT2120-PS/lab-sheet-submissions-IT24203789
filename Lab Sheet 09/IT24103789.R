@@ -1,35 +1,18 @@
-setwd("C:\\Users\\it24103789\\Desktop\\IT24103789")
-data<-read.table("Exercise - LaptopsWeights.txt",header=TRUE)
-fix(data)
-attach(data)
-
-popmn<-mean(Weight.kg.)
-
-popvar<-var(Weight.kg.)
-
-samples<-c()
-n<-c()
-
-for(i in 1:30){
-  s<-sample(Weight.kg.,6,replace=TRUE)
-  samples<-cbind(samples,s)
-  n<-c(n,paste('s',i))
-}
-colnames(samples)=n
-s.means<-apply(samples,2,mean)
-s.sd<-apply(samples,2,sd)
-
-samplemean<-mean(s.means)
-samplesd<-sd(s.means)
-
-popmn
-samplemean
+setwd("C:\\Users\\ASUS\\Desktop\\it24103789_Lab_09")
+getwd()
 
 
-samplesd
+# Set seed for reproducibility
+set.seed(123)
+# Part (i) Generate random sample
+sample_size <- 25
+mu <- 45
+sigma <- 2
+baking_times <- rnorm(sample_size, mean = mu, sd = sigma)
+print(baking_times)
+# Part (ii) Hypothesis test
+# H0: mean = 46
+# H1: mean < 46
 
-truemean=popmn/6
-samplemean
-
-
-
+t_test_result <- t.test(baking_times, mu = 46, alternative = "less")
+print(t_test_result)
